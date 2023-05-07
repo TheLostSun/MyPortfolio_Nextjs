@@ -17,7 +17,7 @@ const Cards = (props) => {
           <p className=' max-lg:text-center text-rose-100 font-base font-bold mt-2'>{props.tech}</p>
         </div>
         <div className='lg:w-1/2 lg:p-4 max-lg:mt-10'>
-          <img src={props.image} className="rounded-xl w-full" ></img>
+          <Image src={props.image} alt="Project Screenshot" className="rounded-xl w-full" ></Image>
           <div className='flex items-center self-start mt-6 justify-center'>
         <MotionLink href={props.link} target={"_blank"} className='text-center drop-shadow-2xl font-extrabold bg-rose-300 p-3 rounded-xl text-black mx-3' whileHover={{
           scale:1.2,

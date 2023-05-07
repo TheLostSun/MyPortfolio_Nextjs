@@ -1,8 +1,7 @@
 import React from 'react'
 import {motion} from "framer-motion"
 import Link from 'next/link'
-import { useRouter } from 'next/router'
-const router=useRouter();
+
 const Sidebar = (props) => {
     const CustomLinkIcon = ({href,imgURL})=>{
         return(
