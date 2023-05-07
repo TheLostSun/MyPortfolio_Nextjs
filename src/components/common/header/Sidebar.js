@@ -1,6 +1,8 @@
 import React from 'react'
 import {motion} from "framer-motion"
 import Link from 'next/link'
+import { useRouter } from 'next/router'
+const router=useRouter();
 const Sidebar = (props) => {
     const CustomLinkIcon = ({href,imgURL})=>{
         return(
@@ -25,16 +27,16 @@ const Sidebar = (props) => {
         transform transition-all duration-300 ease-in-out
              ${props.isOpen?"translate-x-0":"-translate-x-full"}
              flex flex-col justify-center items-center z-20`}>
-            <Link href="GameDev" className='text-lg antialiased font-bold uppercase border-dark border-4 my-4 p-5 bg-gradient-to-r from-rose-500 to-rose-200 rounded-3xl' whileTap={{
+            <Link href="GameDev" onClick={router.reload(window.location.pathname)} className='text-lg antialiased font-bold uppercase border-dark border-4 my-4 p-5 bg-gradient-to-r from-rose-500 to-rose-200 rounded-3xl' whileTap={{
                 scale:1.2
             }}>Game Development</Link>
-            <Link href="WebDev" className='text-lg antialiased font-bold uppercase border-dark border-4 my-4 p-5 bg-gradient-to-r from-rose-500 to-rose-200 rounded-3xl' whileTap={{
+            <Link href="WebDev" onClick={router.reload(window.location.pathname)} className='text-lg antialiased font-bold uppercase border-dark border-4 my-4 p-5 bg-gradient-to-r from-rose-500 to-rose-200 rounded-3xl' whileTap={{
                 scale:1.2
             }}>Web Development</Link>
-            <Link href="AppDev" className='text-lg antialiased font-bold uppercase border-dark border-4 my-4 p-5 bg-gradient-to-r from-rose-500 to-rose-200 rounded-3xl' whileTap={{
+            <Link href="AppDev" onClick={router.reload(window.location.pathname)} className='text-lg antialiased font-bold uppercase border-dark border-4 my-4 p-5 bg-gradient-to-r from-rose-500 to-rose-200 rounded-3xl' whileTap={{
                 scale:1.2
             }} >App Development</Link>
-            <Link href="Courses" onClick={} className='text-lg antialiased font-bold uppercase border-dark border-4 my-4 p-5 bg-gradient-to-r from-rose-500 to-rose-200 rounded-3xl' whileTap={{
+            <Link href="Courses" onClick={router.reload(window.location.pathname)} className='text-lg antialiased font-bold uppercase border-dark border-4 my-4 p-5 bg-gradient-to-r from-rose-500 to-rose-200 rounded-3xl' whileTap={{
                 scale:1.2
             }}>My Courses</Link>
             <div className='flex my-4'>
