@@ -6,7 +6,7 @@ const Title = () => {
     
 
         <Head>
-            <title>Prabhu's Portfolio</title>
+            <title>Prabhu&apos;s Portfolio</title>
         </Head>
     </>
   )
