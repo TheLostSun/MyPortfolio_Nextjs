@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\components",
+    "\\src\\components\\common",
+    "\\src\\components\\common\\footer",
+    "\\src\\components\\common\\header",
+    "\\src\\components\\MiddleSection",
+    "\\src\\pages",
+    "\\src\\pages\\api",
+    "\\src\\styles"
+  ],
+  "PreviewInSolutionExplorer": false
+}
