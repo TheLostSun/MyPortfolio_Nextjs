@@ -51,12 +51,7 @@ const NavBar = () => {
         
           <CustomLink href="GameDev" imgURL="/images/joystick.svg">
           </CustomLink>
-          <CustomLink href="AppDev" imgURL="/images/mobile.svg">
-          </CustomLink>
-          <CustomLink href="WebDev" imgURL="/images/web.svg">
-          </CustomLink>
-          <CustomLink href="Courses" imgURL="/images/course.svg">
-          </CustomLink>
+          
         </nav>
         <nav className="max-lg:hidden flex justify-between">
           <CustomLinkIcon href="https://github.com/TheLostSun/" target="_blank" imgURL="/images/github.svg">
