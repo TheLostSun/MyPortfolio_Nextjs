@@ -1,5 +1,5 @@
 import Image from "next/image";
-import profilePic from "../../public/meriphoto.jpg";
+import profilePic from "../../public/profile.jpg";
 import AnimatedText from "../components/MiddleSection/AnimatedText.js"
 import Link from "next/link";
 
