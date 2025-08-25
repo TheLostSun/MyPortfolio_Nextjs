@@ -61,7 +61,21 @@ const GameDev = () => {
               video="/videos/ImpossibleSlasher.mp4"
               
           ></Cards>
-      
+      <Cards
+      title="Project Gati Shakti"
+      heading="Interactive Unity experience highlighting the PM Gati Shakti framework."
+      content="Contributed to the development of the PM Gati Shakti Game, created to spread awareness of India’s nationwide infrastructure and connectivity framework. The project was built in Unity, featuring a seamless UI integrated with an immersive 3D world. To ensure adaptability, I implemented a modular coding architecture, enabling smooth scalability, future enhancements, and add-on content. My role spanned game design, coding, and user experience, working with a multidisciplinary team to deliver an engaging, educational, and technically robust simulation. The game was also showcased to Prime Minister Narendra Modi, receiving positive feedback for its innovation and impact. This project strengthened my expertise in scalable game systems, modular development, and immersive design, while demonstrating how interactive technology can effectively communicate and support large-scale national initiatives.
+      "
+      tech="Unity, C#, Version Control"
+      link="https://www.linkedin.com/posts/prabhu-awasthi_im-happy-to-share-this-pm-gati-shakti-project-activity-7253694049214218240-_R9c?utm_source=share&utm_medium=member_desktop&rcm=ACoAADoif7ABLYpAip_ziZt8c4jzr-8TLHGAAxM"
+      trailer=""
+      trailerTitle=";"
+      techOrAvail="Techologies Used"
+      image="/images/gameImages/impSlash.jpg"
+              buttonTitle="Linkedin Post"
+              video="/videos/GatiShakti.mp4"
+              
+          ></Cards>
     </>
   )
 }
