@@ -76,6 +76,22 @@ const GameDev = () => {
               video="/videos/GatiShakti.mp4"
               
           ></Cards>
+
+      <Cards
+      title="Hyper Casual Games"
+      heading="Built multiple hyper-casual games in Unity, showcasing fast prototyping, polished mechanics, and engaging gameplay"
+      content="I have developed a range of hyper-casual games using Unity, focusing on quick prototyping, simple yet addictive gameplay loops, and intuitive user experiences. These projects allowed me to refine my skills in gameplay mechanics, UI/UX design, performance optimization, and modular coding. By iterating rapidly and experimenting with different core mechanics, I gained valuable experience in designing games that are both lightweight and highly engaging. Working on hyper-casual titles has strengthened my ability to balance creativity with technical execution, making me more versatile as a Unity developer.
+      "
+      tech="Unity, C#, Version Control"
+      link="https://thelostsun.github.io/BasketBallGame"
+      trailer=""
+      trailerTitle=";"
+      techOrAvail="Techologies Used"
+      image="/images/gameImages/impSlash.jpg"
+              buttonTitle="Basketball Game"
+              video="/videos/Compilation.mp4"
+              
+          ></Cards>
     </>
   )
 }
