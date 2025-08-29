@@ -62,19 +62,23 @@ const Cards = (props) => {
         <p className="max-lg:text-center text-rose-100 font-base font-bold mt-2">
           {props.tech}
         </p>
-
-        <div className="flex items-center self-start mt-10 justify-center lg:justify-start pb-10 lg:pb-0">
-          <MotionLink
-            href={props.link}
-            target="_blank"
-            className="text-center drop-shadow-2xl font-extrabold bg-rose-300 p-3 rounded-xl text-black mx-3"
-            whileHover={{
-              scale: 1.2,
-              boxShadow: "rgba(0,0,1,1) 0 0 10px",
-            }}
-          >
-            {props.buttonTitle}
-          </MotionLink>
+        
+        {/* Multiple Buttons Support */}
+        <div className="flex flex-wrap items-center self-start mt-10 justify-center lg:justify-start pb-10 lg:pb-0 gap-4">
+          {props.buttons?.map((btn, index) => (
+            <MotionLink
+              key={index}
+              href={btn.link}
+              target="_blank"
+              className="text-center drop-shadow-2xl font-extrabold bg-rose-300 p-3 rounded-xl text-black"
+              whileHover={{
+                scale: 1.2,
+                boxShadow: "rgba(0,0,1,1) 0 0 10px",
+              }}
+            >
+              {btn.title}
+            </MotionLink>
+          ))}
         </div>
       </div>
 
