@@ -73,7 +73,7 @@ const Cards = (props) => {
               boxShadow: "rgba(0,0,1,1) 0 0 10px",
             }}
           >
-            {props.buttonTitle};
+            {props.buttonTitle}
           </MotionLink>
         </div>
       </div>
