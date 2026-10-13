@@ -16,7 +16,7 @@
 @layer components {
   /* Airfield signage: location sign = where you are, direction sign = where you can go */
   .sign {
-    @apply inline-flex items-center gap-2 font-display font-bold uppercase leading-none tracking-wide px-3 py-2 text-[15px] border-2 transition-colors;
+    @apply inline-flex items-center gap-2 font-display font-bold uppercase leading-none tracking-wide px-2.5 py-1.5 text-[14px] sm:px-3 sm:py-2 sm:text-[15px] border-2 transition-colors;
   }
   .sign-direction { @apply bg-sign text-ink border-ink hover:bg-ink hover:text-sign; }
   .sign-location { @apply bg-ink text-sign border-sign; }
