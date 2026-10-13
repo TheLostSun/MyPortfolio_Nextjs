@@ -41,7 +41,12 @@ export default function ProjectRow({ p, flip = false }: { p: Project; flip?: boo
         {p.links.length > 0 && (
           <div className="mt-5 flex flex-wrap gap-2">
             {p.links.map((l) => (
-              <a key={l.href} href={l.href} target="_blank" rel="noreferrer" className="sign sign-direction">
+              <a
+                key={l.href}
+                href={l.href}
+                {...(l.href.startsWith("http") ? { target: "_blank", rel: "noreferrer" } : {})}
+                className="sign sign-direction"
+              >
                 <Arrow dir="ne" />
                 {l.label}
               </a>

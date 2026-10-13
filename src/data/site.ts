@@ -138,8 +138,9 @@ const fartFrog: Project = {
   links: [
     {
       label: "Get it on Google Play",
-      href: "https://play.google.com/store/apps/details?id=com.TheLostSunStudios.FartFrog",
+      href: "https://play.google.com/store/apps/details?id=com.TheLostSunStudios.FartFrog&referrer=utm_source%3Dportfolio%26utm_medium%3Dwork_page",
     },
+    { label: "Game page and press kit", href: "/FartFrog" },
   ],
 };
 
