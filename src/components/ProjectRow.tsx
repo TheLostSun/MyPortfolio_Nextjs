@@ -1,3 +1,4 @@
+import Arrow from "@/components/Arrow";
 import Image from "next/image";
 import type { Project } from "@/data/site";
 import Video from "./Video";
@@ -41,7 +42,7 @@ export default function ProjectRow({ p, flip = false }: { p: Project; flip?: boo
           <div className="mt-5 flex flex-wrap gap-2">
             {p.links.map((l) => (
               <a key={l.href} href={l.href} target="_blank" rel="noreferrer" className="sign sign-direction">
-                <span aria-hidden="true">&#8599;</span>
+                <Arrow dir="ne" />
                 {l.label}
               </a>
             ))}

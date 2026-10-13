@@ -1,3 +1,4 @@
+import Arrow from "@/components/Arrow";
 import Link from "next/link";
 import Seo from "@/components/Seo";
 
@@ -9,7 +10,7 @@ export default function NotFound() {
         <h1 className="font-display font-extrabold text-7xl leading-none">Page not found</h1>
         <p className="mt-4 text-lg text-muted">That address does not lead anywhere. Try the work page instead.</p>
         <Link href="/GameDev" className="mt-6 sign sign-direction">
-          <span aria-hidden="true">&#8599;</span>Work
+          <Arrow dir="ne" />Work
         </Link>
       </section>
     </>

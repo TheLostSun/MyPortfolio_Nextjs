@@ -1,3 +1,4 @@
+import Arrow from "@/components/Arrow";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import type { ReactNode } from "react";
@@ -32,7 +33,7 @@ export default function Layout({ children }: { children: ReactNode }) {
                   aria-current={here ? "page" : undefined}
                   className={`sign ${here ? "sign-location" : "sign-direction"}`}
                 >
-                  {!here && <span aria-hidden="true">&#8599;</span>}
+                  {!here && <Arrow dir="ne" />}
                   {n.label}
                 </Link>
               );

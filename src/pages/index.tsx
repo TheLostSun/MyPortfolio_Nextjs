@@ -1,3 +1,4 @@
+import Arrow from "@/components/Arrow";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
@@ -33,10 +34,10 @@ export default function Home() {
           <p className="mt-3 text-muted">{contact.location}. Open to remote work and relocation.</p>
           <div className="mt-6 flex flex-wrap gap-2">
             <Link href="/GameDev" className="sign sign-direction">
-              <span aria-hidden="true">&#8599;</span>See the work
+              <Arrow dir="ne" />See the work
             </Link>
             <a href="#contact" className="sign sign-direction">
-              <span aria-hidden="true">&#8600;</span>Contact
+              <Arrow dir="se" />Contact
             </a>
           </div>
         </div>
@@ -72,7 +73,7 @@ export default function Home() {
               Selected work
             </h2>
             <Link href="/GameDev" className="sign sign-direction">
-              <span aria-hidden="true">&#8599;</span>All projects
+              <Arrow dir="ne" />All projects
             </Link>
           </div>
           {featured.map((p, i) => (
@@ -145,11 +146,11 @@ export default function Home() {
             </ul>
             <div className="mt-6 flex flex-wrap gap-2">
               <a href={contact.cv} download className="sign sign-direction">
-                <span aria-hidden="true">&#8595;</span>Download CV
+                <Arrow dir="down" />Download CV
               </a>
               {socials.slice(0, 3).map((s) => (
                 <a key={s.label} href={s.href} target="_blank" rel="noreferrer" className="sign sign-direction">
-                  <span aria-hidden="true">&#8599;</span>
+                  <Arrow dir="ne" />
                   {s.label}
                 </a>
               ))}

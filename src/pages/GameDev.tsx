@@ -1,3 +1,4 @@
+import Arrow from "@/components/Arrow";
 import Seo from "@/components/Seo";
 import PageIntro from "@/components/PageIntro";
 import ProjectRow from "@/components/ProjectRow";
@@ -16,7 +17,7 @@ export default function Work() {
         <nav aria-label="Project groups" className="mt-5 flex flex-wrap gap-2">
           {groups.map((g) => (
             <a key={g.id} href={`#${g.id}`} className="sign sign-direction">
-              <span aria-hidden="true">&#8600;</span>
+              <Arrow dir="se" />
               {g.name}
             </a>
           ))}
