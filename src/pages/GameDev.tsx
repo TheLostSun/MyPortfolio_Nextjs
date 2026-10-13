@@ -1,99 +1,42 @@
-import React from "react";
-import Cards from "../components/MiddleSection/Cards.js";
+import Seo from "@/components/Seo";
+import PageIntro from "@/components/PageIntro";
+import ProjectRow from "@/components/ProjectRow";
+import { groups } from "@/data/site";
 
-const GameDev = () => {
+export default function Work() {
   return (
     <>
-      <Cards
-        title="TATA ADAS Simulator"
-        heading="Gamified driving experience highlighting six ADAS technologies for Tata Motors."
-        content="I developed the Tata ADAS Simulator Game in Unity, showcased at the Bharat Mobility Auto Expo, Pragati Maidan. Designed to highlight six key Advanced Driver Assistance Systems (ADAS) features, the game let visitors drive a virtual car around a small island, experiencing scenarios that demonstrated safety and driver-assist technologies in action. Players were scored based on their accuracy and responsiveness, making the experience both educational and engaging. The project effectively transformed complex automotive technology into an immersive, gamified showcase, reinforcing Tata Motors’ commitment to innovation and safety while providing me with an exciting opportunity to blend game design with real-world tech."
-        tech="Unity, C#, ShaderGraph, Version Control"
-        techOrAvail="Technologies Used"
-        video="/videos/TataADAS_Simulator.mp4"
-        buttons={[
-          {
-            title: "LinkedIn Post",
-            link: "https://www.linkedin.com/posts/prabhu-awasthi_nothing-beats-the-joy-of-seeing-people-especially-activity-7288620529991749633-nfjO?utm_source=share&utm_medium=member_desktop",
-          },
-        ]}
+      <Seo
+        title="Work"
+        path="/GameDev"
+        description="Unity projects by Prabhu Awasthi: Vectra ATC simulator, TATA ADAS Simulator, PM Gati Shakti, Samudra Manthan VR, Fart Frog, MIMIC and more."
       />
-
-      <Cards
-        title="Mimic"
-        heading="A Psychological Horror Puzzle Solving 3D game."
-        content="It's a psychological horror heavily inspired by cryptids/scps . In it , you (the player) are captured in a room with a creature , Subject #23 specifically , with whom you are playing a clue-finding game simultaneously . The creature MIMICS everything you do .The objective is simple - ESCAPE ."
-        tech="Unity, C#, Blender, ShaderGraph , Version Control"
-        techOrAvail="Technologies Used"
-        image="/images/gameImages/Mimic.png"
-        video="/videos/MIMIC.mp4"
-        buttons={[
-          { title: "Mimic on Steam", link: "https://store.steampowered.com/app/2961970/MIMIC/" },
-        ]}
-      />
-
-      <Cards
-        title="Samudra Manthan VR"
-        heading="Virtual Reality Experience of Samudra Manthan at Mahakumbh 2025"
-        content="I developed the Samudra Manthan VR Game for the upcoming Mahakumbh 2025 Mahakumbh Center, designed to blend cultural storytelling with modern immersive technology. In this interactive experience, participants virtually take part in the legendary Samudra Manthan (churning of the ocean) by pulling Vasuki, the serpent, using VR controls. As the churning progresses, users witness and collect the divine elements and treasures emerging from the ocean, making the mythological tale both informative and engaging."
-        tech="Unity, C#, ShaderGraph , VR , Blender , Version Control"
-        techOrAvail="Technologies Used"
-        image="/images/gameImages/impSlash.jpg"
-        video="/videos/SamudraManthan.mp4"
-        buttons={[
-          {
-            title: "LinkedIn Post",
-            link: "https://www.linkedin.com/posts/prabhu-awasthi_bringing-mythology-to-life-samudra-manthan-activity-7364658232486711296-xcFb?utm_source=share&utm_medium=member_desktop",
-          },
-        ]}
-      />
-
-      <Cards
-        title="Impossible Slasher !"
-        heading="A fun Hack and Slash 2D Game in partnership with Angel Star Studios."
-        content="Defeat as many enemies as you can and unlock different characters with different abilities. A Retro inspired pixelated adventure hack and slash game with 3 Different Mesmerizing Maps! , 4 DIFFERENT PLAYABLE CHARACTERS ! and various species of enemies with different attacks and abilities."
-        tech="Unity, C#, ShaderGraph"
-        techOrAvail="Technologies Used"
-        image="/images/gameImages/impSlash.jpg"
-        video="/videos/ImpossibleSlasher.mp4"
-        buttons={[
-          { title: "Impossible Slasher ! on itch.io", link: "https://thelostsun-studios.itch.io/impossible-slasher" },
-        ]}
-      />
-
-      <Cards
-        title="Project Gati Shakti"
-        heading="Interactive Unity experience highlighting the PM Gati Shakti framework."
-        content="Contributed to the development of the PM Gati Shakti Game, created to spread awareness of India’s nationwide infrastructure and connectivity framework. The project was built in Unity, featuring a seamless UI integrated with an immersive 3D world. To ensure adaptability, I implemented a modular coding architecture, enabling smooth scalability, future enhancements, and add-on content. My role spanned game design, coding, and user experience, working with a multidisciplinary team to deliver an engaging, educational, and technically robust simulation. The game was also showcased to Prime Minister Narendra Modi, receiving positive feedback for its innovation and impact."
-        tech="Unity, C#, Version Control"
-        techOrAvail="Technologies Used"
-        image="/images/gameImages/impSlash.jpg"
-        video="/videos/GatiShakti.mp4"
-        buttons={[
-          {
-            title: "LinkedIn Post",
-            link: "https://www.linkedin.com/posts/prabhu-awasthi_im-happy-to-share-this-pm-gati-shakti-project-activity-7253694049214218240-_R9c?utm_source=share&utm_medium=member_desktop",
-          },
-        ]}
-      />
-
-      {/* ✅ Last card with TWO buttons */}
-      <Cards
-        title="Hyper Casual Games"
-        heading="Built multiple hyper-casual games in Unity, showcasing fast prototyping, polished mechanics, and engaging gameplay"
-        content="I have developed a range of hyper-casual games using Unity, focusing on quick prototyping, simple yet addictive gameplay loops, and intuitive user experiences. These projects allowed me to refine my skills in gameplay mechanics, UI/UX design, performance optimization, and modular coding. By iterating rapidly and experimenting with different core mechanics, I gained valuable experience in designing games that are both lightweight and highly engaging."
-        tech="Unity, C#, Version Control"
-        techOrAvail="Technologies Used"
-        image="/images/gameImages/impSlash.jpg"
-        video="/videos/Compilation.mp4"
-        buttons={[
-          { title: "Basketball Game", link: "https://thelostsun.github.io/BasketBallGame" },
-          { title: "Sweet Frog", link: "https://thelostsun-studios.itch.io/sweet-frog" },
-          { title: "Driving Game", link: "https://thelostsun.github.io/Driving-Game" }
-        ]}
-      />
+      <PageIntro title="Work">
+        Simulators, public installations and shipped games, all built in Unity.
+        <nav aria-label="Project groups" className="mt-5 flex flex-wrap gap-2">
+          {groups.map((g) => (
+            <a key={g.id} href={`#${g.id}`} className="sign sign-direction">
+              <span aria-hidden="true">&#8600;</span>
+              {g.name}
+            </a>
+          ))}
+        </nav>
+      </PageIntro>
+      {groups.map((g) => (
+        <section key={g.id} id={g.id} aria-labelledby={`${g.id}-h`} className="scroll-mt-4 border-t-2 border-ink">
+          <div className="mx-auto max-w-page px-4 sm:px-6 pt-10">
+            <div className="flex flex-wrap items-baseline gap-x-6 gap-y-2">
+              <h2 id={`${g.id}-h`} className="sign sign-location text-2xl">
+                {g.name}
+              </h2>
+              <p className="text-muted max-w-xl">{g.intro}</p>
+            </div>
+            {g.projects.map((p, i) => (
+              <ProjectRow key={p.id} p={p} flip={i % 2 === 1} />
+            ))}
+          </div>
+        </section>
+      ))}
     </>
   );
-};
-
-export default GameDev;
+}

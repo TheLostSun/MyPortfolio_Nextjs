@@ -1,22 +1,23 @@
 /** @type {import('tailwindcss').Config} */
-const {fontFamily} =require("tailwindcss/defaultTheme");
+const { fontFamily } = require("tailwindcss/defaultTheme");
 module.exports = {
-  content: [
-    // Or if using `src` directory:
-    "./src/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
+  content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
     extend: {
-      fontFamily:{
-        mont:['var(--font-mont)', ...fontFamily.sans],
+      fontFamily: {
+        display: ["var(--font-display)", ...fontFamily.sans],
+        sans: ["var(--font-body)", ...fontFamily.sans],
       },
-      colors:{
-        dark:"#1b1b1b",
-        light:"#bae6fd",
-        primary:"#863E96",
-        primaryDark:"#58E609",
+      colors: {
+        paper: "#E6E9EC",
+        ink: "#111C27",
+        sign: "#F5B700",
+        scope: "#18232E",
+        muted: "#5B6773",
+        rule: "#C5CBD1",
       },
+      maxWidth: { page: "76rem" },
     },
   },
   plugins: [],
-}
+};

@@ -1,19 +1,17 @@
-import '@/styles/globals.css'
-import {Montserrat} from "next/font/google"
-import { AppProps } from 'next/app';
-import Layout from '@/components/common/Layout';
-const monsterrat=Montserrat({
-  subsets:["latin"],
-  variable:"--font-mont"
-});
-const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
-  return (
-    <main className={`${monsterrat.variable} font-mont bg-light w-full min-h-screen`}>
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
-    </main>
-  );
-};
+import "@/styles/globals.css";
+import type { AppProps } from "next/app";
+import { Big_Shoulders_Display, Public_Sans } from "next/font/google";
+import Layout from "@/components/Layout";
 
-export default MyApp;
+const display = Big_Shoulders_Display({ subsets: ["latin"], variable: "--font-display", weight: ["600", "700", "800"] });
+const body = Public_Sans({ subsets: ["latin"], variable: "--font-body" });
+
+export default function MyApp({ Component, pageProps }: AppProps) {
+  return (
+    <div className={`${display.variable} ${body.variable} font-sans`}>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </div>
+  );
+}

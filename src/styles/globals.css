@@ -1,3 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-paper text-ink antialiased; }
+  ::selection { background: #F5B700; color: #111C27; }
+  :focus-visible { outline: 3px solid #F5B700; outline-offset: 3px; box-shadow: 0 0 0 6px #111C27; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
+}
+
+@layer components {
+  /* Airfield signage: location sign = where you are, direction sign = where you can go */
+  .sign {
+    @apply inline-flex items-center gap-2 font-display font-bold uppercase leading-none tracking-wide px-3 py-2 text-[15px] border-2 transition-colors;
+  }
+  .sign-direction { @apply bg-sign text-ink border-ink hover:bg-ink hover:text-sign; }
+  .sign-location { @apply bg-ink text-sign border-sign; }
+  .text-link { @apply underline decoration-2 underline-offset-4 decoration-sign hover:decoration-ink; }
+}
