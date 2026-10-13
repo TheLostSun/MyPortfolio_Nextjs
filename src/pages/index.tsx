@@ -54,10 +54,10 @@ export default function Home() {
               playsInline
               autoPlay
               preload="auto"
-              aria-label="Reel: Vectra, TATA ADAS Simulator, Samudra Manthan VR, PM Gati Shakti, Fart Frog and MIMIC"
+              aria-label="Reel: PM Gati Shakti, TATA ADAS Simulator, Samudra Manthan VR, Vectra, MIMIC, Fart Frog and Impossible Slasher"
             />
             <figcaption className="flex justify-between gap-4 pt-2 text-xs text-paper/70">
-              <span>Vectra, TATA ADAS, Samudra Manthan, Gati Shakti, Fart Frog, MIMIC</span>
+              <span>Gati Shakti, TATA ADAS, Samudra Manthan, Vectra, MIMIC, Fart Frog, Impossible Slasher</span>
               <a className="hover:text-sign whitespace-nowrap" href={contact.showreel} target="_blank" rel="noreferrer">
                 Full showreel
               </a>

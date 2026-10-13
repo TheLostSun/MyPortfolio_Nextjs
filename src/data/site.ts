@@ -222,7 +222,10 @@ export const groups: Group[] = [
   },
 ];
 
-export const featured: Project[] = [vectra, tata, samudra, fartFrog];
+/** Order used across the site and the hero reel. */
+export const allWork: Project[] = [gati, tata, samudra, vectra, mimic, fartFrog, slasher, hyper, ether];
+
+export const featured: Project[] = [gati, tata, samudra, vectra, mimic];
 
 export const web: Project[] = [
   {
