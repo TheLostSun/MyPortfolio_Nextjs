@@ -33,6 +33,25 @@ export const socials: LinkItem[] = [
   { label: "Discord", href: "https://discord.com/invite/qVqmyKtdfq" },
 ];
 
+const finRace: Project = {
+  id: "finrace",
+  title: "FinRace",
+  client: "Financial-literacy brand activation, UAE",
+  year: "2026",
+  summary:
+    "A two-player racing game that teaches money habits in under three minutes. Each player drives on a tablet, starts with a AED 10,000 salary and steers into savings, investments, wants and scams, while a big screen shows both races, a live leaderboard and a financial health score at the finish.",
+  role: [
+    "Designed and built the whole game solo: gameplay, money model, scoring and results",
+    "Tablet-to-screen networking over OSC with a no-data-loss channel for registrations and results",
+    "Event-ready data capture: JSON journals, backups and a live Excel leaderboard on the screen PC",
+    "Visual pass: post-processing, jump and barrel-roll tricks, obstacles, particles and a streamed city",
+  ],
+  stack: "Unity 6, C#, URP, OSC, Android + Windows",
+  video: "/videos/FinRace.mp4",
+  poster: "/posters/FinRace.jpg",
+  links: [{ label: "Read the case study", href: "/CaseStudies/FinRace" }],
+};
+
 const vectra: Project = {
   id: "vectra",
   title: "Vectra",
@@ -213,7 +232,7 @@ export const groups: Group[] = [
     id: "installations",
     name: "Installations and XR",
     intro: "Experiences for exhibitions, museums and live events, built to run all day in front of the public.",
-    projects: [samudra],
+    projects: [finRace, samudra],
   },
   {
     id: "games",
@@ -224,9 +243,9 @@ export const groups: Group[] = [
 ];
 
 /** Order used across the site and the hero reel. */
-export const allWork: Project[] = [gati, tata, samudra, vectra, mimic, fartFrog, slasher, hyper, ether];
+export const allWork: Project[] = [finRace, gati, tata, samudra, vectra, mimic, fartFrog, slasher, hyper, ether];
 
-export const featured: Project[] = [gati, tata, samudra, vectra, mimic];
+export const featured: Project[] = [finRace, gati, tata, samudra, vectra, mimic];
 
 export const web: Project[] = [
   {
