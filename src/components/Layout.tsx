@@ -7,6 +7,7 @@ import { contact, socials } from "@/data/site";
 const nav = [
   { href: "/", label: "Home" },
   { href: "/GameDev", label: "Work" },
+  { href: "/CaseStudies", label: "Case studies" },
   { href: "/WebDev", label: "Web" },
   { href: "/Courses", label: "Teaching" },
 ];
@@ -25,7 +26,7 @@ export default function Layout({ children }: { children: ReactNode }) {
           </Link>
           <nav aria-label="Main" className="flex flex-wrap gap-2">
             {nav.map((n) => {
-              const here = n.href === pathname;
+              const here = n.href === pathname || (n.href !== "/" && pathname.startsWith(n.href + "/"));
               return (
                 <Link
                   key={n.href}
