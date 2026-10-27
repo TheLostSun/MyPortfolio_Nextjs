@@ -16,12 +16,12 @@ export const caseStudies: CaseStudy[] = [
     slug: "finrace",
     href: "/CaseStudies/FinRace",
     title: "FinRace",
-    tagline: "A two-player money race for brand activations",
-    client: "Financial-literacy brand activation, UAE",
+    tagline: "A money race for brand activations, with a backup and a final",
+    client: "Financial-literacy brand activation, Abu Dhabi",
     year: "2026",
     poster: "/posters/FinRace.jpg",
-    tags: ["Event game", "2 players", "Tablets + big screen", "Lead capture"],
+    tags: ["Event game", "1–2 players", "Tablets + LED + button box", "Procedural + real-world city", "Lead capture"],
     blurb:
-      "How a three-minute racing game gets crowds talking about saving, spending and investing, captures every player's details without losing a single record, and can be re-branded for a new client in days.",
+      "How a 60-second runner got crowds talking about saving, spending and investing, raced through a procedural city and a real Abu Dhabi street, and shipped as a tablet backup plus an LED final with a button box, without losing a single record.",
   },
 ];

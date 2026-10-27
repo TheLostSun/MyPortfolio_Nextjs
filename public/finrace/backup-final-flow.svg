@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1560" width="1200" height="1560" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
+  <title id="t">Building an event game with a backup and a final version</title>
+  <desc id="d">A flowchart: lock the brief, build one shared core, make each product difference a scene switch, then split into a backup that runs only on hardware you control and a final that uses the venue's own hardware. Test each, package both, and on show day run the final if its hardware works, otherwise switch to the backup in minutes with no data lost.</desc>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#111C27"/>
+    </marker>
+    <style>
+      .box{fill:#FFFFFF;stroke:#111C27;stroke-width:2.5}
+      .n{font-weight:800;font-size:30px;fill:#F5B700;stroke:#111C27;stroke-width:1.2px;paint-order:stroke}
+      .h{font-weight:800;font-size:21px;fill:#111C27}
+      .p{font-size:16px;fill:#111C27}
+      .m{font-size:15px;fill:#5B6773}
+      .hw{font-weight:800;font-size:22px;fill:#E6E9EC}
+      .pw{font-size:16px;fill:#E6E9EC}
+      .ln{stroke:#111C27;stroke-width:2.5;fill:none}
+    </style>
+  </defs>
+
+  <rect width="1200" height="1560" fill="#E6E9EC"/>
+  <text x="60" y="62" font-weight="800" font-size="34" fill="#111C27">Backup + final: a recipe for event games</text>
+  <text x="60" y="92" class="m">How FinRace shipped two versions from one codebase, so show day never depends on a single piece of hardware.</text>
+
+  <!-- 1 -->
+  <rect class="box" x="60" y="120" width="1080" height="96"/>
+  <text x="80" y="160" class="n">1</text>
+  <text x="120" y="156" class="h">Lock the brief and the hardware</text>
+  <text x="120" y="182" class="p">Who plays where (tablets, LED, buttons), how many at once, the venue network, and what data the client must keep.</text>
+  <text x="120" y="204" class="m">Write down which hardware you control and which belongs to someone else: that line decides the backup.</text>
+  <path class="ln" d="M600,216 V246" marker-end="url(#a)"/>
+
+  <!-- 2 -->
+  <rect class="box" x="60" y="250" width="1080" height="120"/>
+  <text x="80" y="290" class="n">2</text>
+  <text x="120" y="286" class="h">Build one shared core</text>
+  <text x="120" y="312" class="p">Game rules, scoring, the network protocol, data saving and every tunable value live once, in code and config files.</text>
+  <text x="120" y="336" class="p">Make the race deterministic (same seed + same clock = same race) so any screen can mirror or run it.</text>
+  <text x="120" y="358" class="m">Save registrations and results to disk before acknowledging them, so no version can lose a lead.</text>
+  <path class="ln" d="M600,370 V400" marker-end="url(#a)"/>
+
+  <!-- 3 -->
+  <rect class="box" x="60" y="404" width="1080" height="96"/>
+  <text x="80" y="444" class="n">3</text>
+  <text x="120" y="440" class="h">Make every difference a scene switch, not a fork</text>
+  <text x="120" y="466" class="p">Each version gets its own scene folder with a few flags ticked (e.g. "registration only", "race on the LED").</text>
+  <text x="120" y="488" class="m">Switched off, the code takes the original path, so improving the core improves both versions at once.</text>
+  <path class="ln" d="M600,500 V520 H320 V548" marker-end="url(#a)"/>
+  <path class="ln" d="M600,520 H880 V548" marker-end="url(#a)"/>
+
+  <!-- column headers -->
+  <rect x="60" y="552" width="520" height="118" fill="#18232E" stroke="#111C27" stroke-width="2.5"/>
+  <text x="84" y="590" class="hw">BACKUP: hardware you control</text>
+  <text x="84" y="618" class="pw">FinRace: players race on their own tablets;</text>
+  <text x="84" y="640" class="pw">the LED mirrors both races live over OSC.</text>
+  <text x="84" y="660" class="pw" opacity=".75">Tablets + PC + router, nothing else.</text>
+
+  <rect x="620" y="552" width="520" height="118" fill="#F5B700" stroke="#111C27" stroke-width="2.5"/>
+  <text x="644" y="590" class="h" font-size="22">FINAL: the venue's own hardware</text>
+  <text x="644" y="618" class="p">FinRace: tablets only register players; the race</text>
+  <text x="644" y="640" class="p">runs on the LED, played on an OSC button box</text>
+  <text x="644" y="660" class="p">(left / right / jump per player), built by another team.</text>
+
+  <path class="ln" d="M320,670 V700" marker-end="url(#a)"/>
+  <path class="ln" d="M880,670 V700" marker-end="url(#a)"/>
+
+  <!-- 4 -->
+  <rect class="box" x="60" y="704" width="520" height="140"/>
+  <text x="80" y="744" class="n">4</text>
+  <text x="120" y="740" class="h">Finish it first, then freeze it</text>
+  <text x="120" y="766" class="p">Get it approved end to end before the</text>
+  <text x="120" y="788" class="p">final exists. After that, change it only</text>
+  <text x="120" y="810" class="p">through the shared core.</text>
+  <text x="120" y="834" class="m">It is your insurance policy.</text>
+
+  <rect class="box" x="620" y="704" width="520" height="140"/>
+  <text x="640" y="744" class="n">4</text>
+  <text x="680" y="740" class="h">Agree the contract, not the device</text>
+  <text x="680" y="766" class="p">Publish the exact messages and port the box</text>
+  <text x="680" y="788" class="p">must send. Accept several forms, ignore</text>
+  <text x="680" y="810" class="p">repeats, log anything wrong.</text>
+  <text x="680" y="834" class="m">Keyboard keys do the same job as a fallback.</text>
+
+  <path class="ln" d="M320,844 V874" marker-end="url(#a)"/>
+  <path class="ln" d="M880,844 V874" marker-end="url(#a)"/>
+
+  <!-- 5 -->
+  <rect class="box" x="60" y="878" width="520" height="130"/>
+  <text x="80" y="918" class="n">5</text>
+  <text x="120" y="914" class="h">Test the whole floor</text>
+  <text x="120" y="940" class="p">Two tablets and the LED on one network:</text>
+  <text x="120" y="962" class="p">registration, race, results, leaderboard,</text>
+  <text x="120" y="984" class="p">a tablet closed mid-race, a lost Wi-Fi.</text>
+
+  <rect class="box" x="620" y="878" width="520" height="130"/>
+  <text x="640" y="918" class="n">5</text>
+  <text x="680" y="914" class="h">Test without the box, then with it</text>
+  <text x="680" y="940" class="p">Simulate presses from any OSC app. Add an</text>
+  <text x="680" y="962" class="p">on-screen monitor (IP, port, each press lit)</text>
+  <text x="680" y="984" class="p">so staff can check the real box in seconds.</text>
+
+  <path class="ln" d="M320,1008 V1030 H600 V1056" marker-end="url(#a)"/>
+  <path class="ln" d="M880,1008 V1030 H600"/>
+
+  <!-- 6 -->
+  <rect class="box" x="60" y="1060" width="1080" height="118"/>
+  <text x="80" y="1100" class="n">6</text>
+  <text x="120" y="1096" class="h">Package both, the same way</text>
+  <text x="120" y="1122" class="p">One menu click builds all four apps (2 tablet APKs, 2 LED exes) and two zips. Each zip has a setup script that opens</text>
+  <text x="120" y="1144" class="p">the UDP ports in the firewall, the apps, and a one-page guide. Both use the same data folder on the PC.</text>
+  <text x="120" y="1166" class="m">Optional: an end date baked into every build, for a licence that runs out after the event.</text>
+  <path class="ln" d="M600,1178 V1196" marker-end="url(#a)"/>
+
+  <!-- 7 diamond -->
+  <polygon points="600,1200 860,1280 600,1360 340,1280" fill="#F5B700" stroke="#111C27" stroke-width="2.5"/>
+  <text x="600" y="1264" text-anchor="middle" font-weight="800" font-size="26" fill="#111C27">7</text>
+  <text x="600" y="1290" text-anchor="middle" class="h" font-size="19">Show day: does the final's</text>
+  <text x="600" y="1314" text-anchor="middle" class="h" font-size="19">hardware work on site?</text>
+
+  <path class="ln" d="M860,1280 H950 V1396" marker-end="url(#a)"/>
+  <text x="878" y="1268" class="h" font-size="18">Yes</text>
+  <path class="ln" d="M340,1280 H250 V1396" marker-end="url(#a)"/>
+  <text x="290" y="1268" class="h" font-size="18">No</text>
+
+  <rect x="620" y="1400" width="520" height="96" fill="#F5B700" stroke="#111C27" stroke-width="2.5"/>
+  <text x="644" y="1436" class="h">Run the final</text>
+  <text x="644" y="1462" class="p">Tablets register, players race on the LED</text>
+  <text x="644" y="1484" class="p">with the buttons. The backup stays in the bag.</text>
+
+  <rect x="60" y="1400" width="520" height="96" fill="#18232E" stroke="#111C27" stroke-width="2.5"/>
+  <text x="84" y="1436" class="hw">Switch to the backup in minutes</text>
+  <text x="84" y="1462" class="pw">Install the other APK, start the other LED app.</text>
+  <text x="84" y="1484" class="pw">Same tablets, PC, network and saved data.</text>
+
+  <text x="600" y="1536" text-anchor="middle" class="m">Rule of thumb: never let a part you don't control be the only way the event can run.</text>
+</svg>
