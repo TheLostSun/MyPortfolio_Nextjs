@@ -74,7 +74,7 @@ const worlds = [
   {
     name: "The Abu Dhabi street",
     tag: "What the event ran",
-    image: "/finrace/led-race.jpg",
+    image: "/finrace/led-finish.jpg",
     points: [
       "A real city model built from map data (roads, buildings, land use and water, about 20 × 19 km), imported at full scale.",
       "The race follows a spline snapped to a real 2.5 km stretch of coastal road; the 60-second race is stretched onto it, so the start and finish land on real corners.",
