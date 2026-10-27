@@ -39,16 +39,15 @@ const finRace: Project = {
   client: "Financial-literacy brand activation, UAE",
   year: "2026",
   summary:
-    "A two-player racing game that teaches money habits in under three minutes. Each player drives on a tablet, starts with a AED 10,000 salary and steers into savings, investments, wants and scams, while a big screen shows both races, a live leaderboard and a financial health score at the finish.",
+    "A one- or two-player running game that teaches money habits in 60 seconds. Players register on a tablet, start with a AED 10,000 salary and run through savings, investments, wants and scams down a real Abu Dhabi street, while an LED wall runs the race, a live leaderboard and a financial health score at the finish. Shipped as two versions: a tablet-play backup and an LED final played on an OSC button box.",
   role: [
     "Designed and built the whole game solo: gameplay, money model, scoring and results",
-    "Tablet-to-screen networking over OSC with a no-data-loss channel for registrations and results",
-    "Event-ready data capture: JSON journals, backups and a live Excel leaderboard on the screen PC",
-    "Visual pass: post-processing, jump and barrel-roll tricks, obstacles, particles and a streamed city",
+    "Networking between tablets, LED and a button box over OSC, with a no-data-loss channel for registrations and results",
+    "Event-ready data capture: JSON journals, backups and a live Excel leaderboard on the LED PC",
+    "Two worlds: a procedural city and a real Abu Dhabi street from map data, with custom wind and facade shaders",
   ],
   stack: "Unity 6, C#, URP, OSC, Android + Windows",
-  video: "/videos/FinRace.mp4",
-  poster: "/posters/FinRace.jpg",
+  image: "/posters/FinRace.jpg",
   links: [{ label: "Read the case study", href: "/CaseStudies/FinRace" }],
 };
 

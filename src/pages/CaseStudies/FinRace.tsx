@@ -44,17 +44,27 @@ const steps = [
 ];
 
 const gallery = [
-  { src: "/finrace/countdown.jpg", alt: "Both players on the start line with a AED 10,000 salary", caption: "Both players start on the same salary. The LED mirrors each tablet live." },
-  { src: "/finrace/collect.jpg", alt: "Green particles burst as a player collects a savings item", caption: "Every pickup bursts in its category colour: green to grow, orange to spend, red for hazards." },
-  { src: "/finrace/flip.jpg", alt: "A car doing a barrel roll over a truck", caption: "Early builds raced cars that barrel-rolled over obstacles; the final game uses running characters." },
-  { src: "/finrace/crash.jpg", alt: "A car crashed into a barrier with a Crashed banner", caption: "Early builds ended a run on a crash. Testing showed a repair bill teaches more and keeps everyone racing." },
-  { src: "/finrace/results.jpg", alt: "Results screen with health scores and benchmark bars for both players", caption: "Results: health score, where the money went against 50/30/20, title and takeaway." },
+  { src: "/finrace/led-lobby.jpg", alt: "LED lobby: register on a tablet to play, open seats and the all-time top five", caption: "Between races the LED invites people to register and shows the all-time top five." },
+  { src: "/finrace/led-race.jpg", alt: "Two runners side by side on the Abu Dhabi street with money pickups and HUD pills", caption: "Two players head to head down the Abu Dhabi street, each with balance, health and life stage." },
+  { src: "/finrace/led-collect.jpg", alt: "A burst of gold particles as a player collects a savings item", caption: "Every pickup bursts in its category colour; hazards flash red with their cost." },
+  { src: "/finrace/led-finish.jpg", alt: "The finish camera framing the glass tower at the end of the route", caption: "At the line the camera swings out to the glass tower at the finish." },
+  { src: "/finrace/led-results.jpg", alt: "Results cards for both players with balance, health ring and breakdown", caption: "Results: final balance, financial health, race rank and where the money went." },
+  { src: "/finrace/led-leaderboard.jpg", alt: "All-time leaderboard with balance, health and title", caption: "The all-time leaderboard keeps the crowd coming back for another run." },
+];
+
+const tabletShots = [
+  { src: "/finrace/tab-character.jpg", alt: "Tablet: choose your character", caption: "Pick a runner" },
+  { src: "/finrace/tab-name.jpg", alt: "Tablet: choose your name", caption: "Type a name" },
+  { src: "/finrace/tab-howto.jpg", alt: "Tablet: how to play", caption: "How to play" },
+  { src: "/finrace/tab-race.jpg", alt: "Tablet: the race in portrait, jumping over an item", caption: "Race (backup)" },
+  { src: "/finrace/tab-results.jpg", alt: "Tablet: your results with balance and health score", caption: "Your results" },
 ];
 
 const worlds = [
   {
     name: "The procedural city",
     tag: "Built first, kept as an option",
+    image: "/finrace/procedural.jpg",
     points: [
       "Road, sidewalks, lamps, trees, hydrants and city blocks are generated tile by tile as the runner moves, so the road never ends and memory stays flat on a tablet.",
       "Everything comes from the race seed, so the tablet and the LED build the same street without sending it. Only the buildings, chosen on the tablet, travel over the network.",
@@ -64,6 +74,7 @@ const worlds = [
   {
     name: "The Abu Dhabi street",
     tag: "What the event ran",
+    image: "/finrace/led-finish.jpg",
     points: [
       "A real city model built from map data (roads, buildings, land use and water, about 20 × 19 km), imported at full scale.",
       "The race follows a spline snapped to a real 2.5 km stretch of coastal road; the 60-second race is stretched onto it, so the start and finish land on real corners.",
@@ -166,9 +177,11 @@ export default function FinRaceCaseStudy() {
           </div>
           <figure className="lg:col-span-7">
             <div className="border-2 border-sign bg-scope p-2">
-              <Video src="/videos/FinRace.mp4" poster="/posters/FinRace.jpg" label="FinRace gameplay: two players racing side by side" />
+              <div className="relative aspect-video">
+                <Image src="/finrace/led-race.jpg" alt="FinRace on the LED: two players racing down the Abu Dhabi street" fill priority sizes="(min-width:1024px) 58vw, 100vw" className="object-cover" />
+              </div>
             </div>
-            <figcaption className="pt-2 text-xs text-paper/60">Early build on the LED: each half is one player&apos;s tablet, mirrored live.</figcaption>
+            <figcaption className="pt-2 text-xs text-paper/60">The LED wall: two players racing down the Abu Dhabi street.</figcaption>
           </figure>
         </div>
       </section>
@@ -219,8 +232,8 @@ export default function FinRaceCaseStudy() {
             On the big screen
           </h2>
           <ul className="mt-8 grid gap-6 md:grid-cols-2">
-            {gallery.map((g, i) => (
-              <li key={g.src} className={i === gallery.length - 1 ? "md:col-span-2" : ""}>
+            {gallery.map((g) => (
+              <li key={g.src}>
                 <figure>
                   <div className="relative aspect-video border-2 border-paper/30">
                     <Image src={g.src} alt={g.alt} fill sizes="(min-width:768px) 50vw, 100vw" className="object-cover" />
@@ -230,6 +243,50 @@ export default function FinRaceCaseStudy() {
               </li>
             ))}
           </ul>
+        </div>
+      </section>
+
+      <section aria-labelledby="tablet-h" className="mx-auto max-w-page px-4 sm:px-6 py-12">
+        <h2 id="tablet-h" className="font-display font-extrabold text-5xl leading-none">
+          On the tablet
+        </h2>
+        <p className="mt-4 text-lg max-w-2xl text-muted">
+          Registration takes four taps and a name. In the final version that is all the tablet does; in the backup the
+          race runs on it too, in portrait.
+        </p>
+        <ul className="mt-8 grid gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-5">
+          {tabletShots.map((t) => (
+            <li key={t.src}>
+              <figure>
+                <div className="relative aspect-[5/8] border-2 border-ink bg-scope">
+                  <Image src={t.src} alt={t.alt} fill sizes="(min-width:1024px) 20vw, (min-width:640px) 33vw, 50vw" className="object-cover" />
+                </div>
+                <figcaption className="mt-2 text-sm text-muted">{t.caption}</figcaption>
+              </figure>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section aria-labelledby="early-h" className="bg-scope text-paper">
+        <div className="mx-auto max-w-page px-4 sm:px-6 py-12 grid gap-8 lg:grid-cols-12 lg:items-center">
+          <div className="lg:col-span-5">
+            <p className="text-sm text-paper/60">Earlier version</p>
+            <h2 id="early-h" className="mt-1 font-display font-extrabold text-5xl leading-none text-sign">
+              Where it started
+            </h2>
+            <p className="mt-4 text-lg leading-relaxed text-paper/85 max-w-prose">
+              The first playable build raced cars through the procedural city, with barrel rolls over trucks, and a crash
+              ended your run. Playtesting moved it to running characters, swapped the crash for a repair bill so everyone
+              finishes, and cut the race to 60 seconds.
+            </p>
+          </div>
+          <figure className="lg:col-span-7">
+            <div className="border-2 border-paper/30">
+              <Video src="/videos/FinRace.mp4" poster="/finrace/early/poster.jpg" label="Earlier version of FinRace: two cars racing side by side" />
+            </div>
+            <figcaption className="pt-2 text-xs text-paper/60">Early build, procedural city, cars instead of runners.</figcaption>
+          </figure>
         </div>
       </section>
 
@@ -244,6 +301,9 @@ export default function FinRaceCaseStudy() {
         <div className="mt-8 grid gap-6 md:grid-cols-2">
           {worlds.map((w) => (
             <article key={w.name} className="border-2 border-ink p-5 bg-paper">
+              <div className="relative aspect-video border-2 border-ink mb-4">
+                <Image src={w.image} alt={`${w.name} in play`} fill sizes="(min-width:768px) 50vw, 100vw" className="object-cover" />
+              </div>
               <p className="text-sm text-muted">{w.tag}</p>
               <h3 className="mt-1 font-display font-bold text-3xl leading-tight">{w.name}</h3>
               <ul className="mt-4 space-y-3">
