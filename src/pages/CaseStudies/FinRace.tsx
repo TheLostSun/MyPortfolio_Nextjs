@@ -10,9 +10,11 @@ const ENQUIRY = `mailto:${contact.email}?subject=${encodeURIComponent("FinRace f
 )}`;
 
 const glance: [string, string][] = [
-  ["Players", "2 at a time, head to head"],
-  ["Session", "About 3 minutes: 2.5 minute race + results"],
-  ["Hardware", "2 Android tablets, 1 Windows PC, a large screen or LED wall, a Wi-Fi router"],
+  ["Players", "1 or 2 at a time: solo, or head to head"],
+  ["Session", "About 90 seconds: a 60-second race, then results and the leaderboard"],
+  ["Hardware", "2 Android tablets, 1 Windows PC driving an LED wall, a router, and (final version) a button box with 3 buttons per player"],
+  ["Versions", "Two, from one codebase: a backup played on the tablets, and the final played on the LED"],
+  ["Worlds", "A procedural city, and a real Abu Dhabi street built from map data"],
   ["Internet", "Not needed. Everything runs on the local network"],
   ["Data", "Registration + results saved on the PC, live Excel leaderboard"],
   ["Built with", "Unity 6, C#, URP, OSC"],
@@ -21,19 +23,19 @@ const glance: [string, string][] = [
 const steps = [
   {
     name: "Register on the tablet",
-    text: "Players enter their details on their own tablet and pick a car. The form is generated from a config file, so the fields can be whatever the client needs.",
+    text: "Players pick a runner and type their name on a tablet. The form is generated from a config file, so the fields can be whatever the client needs.",
   },
   {
     name: "Start with a salary",
-    text: "Both players start their career with AED 10,000. The big screen counts them in and the race starts on both tablets at the same moment.",
+    text: "Each player starts their career with AED 10,000. One player can race alone, or two head to head; the LED counts them in.",
   },
   {
     name: "Every choice moves money",
-    text: "Piggy banks and investment seeds move money into savings and investments. Shopping bags and late fees eat it. Scams lose it. Swipe to change lanes, swipe up to jump the trucks and barriers.",
+    text: "Run through piggy banks and investment seeds to grow savings and investments. Shopping bags and late fees eat money, scams lose it. Change lanes to choose, jump trucks and barriers; hitting one costs a repair bill, not the run.",
   },
   {
-    name: "Five life stages, faster each time",
-    text: "From First Paycheck to Financial Freedom, the road speeds up and the time to decide shrinks from 5.5 seconds to under 2. Hit an obstacle and your session is over.",
+    name: "Five life stages in 60 seconds",
+    text: "From First Paycheck to Financial Freedom, the road speeds up and the time to decide shrinks from 5.5 seconds to under 2.",
   },
   {
     name: "Get your financial health score",
@@ -42,11 +44,54 @@ const steps = [
 ];
 
 const gallery = [
-  { src: "/finrace/countdown.jpg", alt: "Both players on the start line with a AED 10,000 salary", caption: "Both players start on the same salary. The big screen mirrors each tablet live." },
+  { src: "/finrace/countdown.jpg", alt: "Both players on the start line with a AED 10,000 salary", caption: "Both players start on the same salary. The LED mirrors each tablet live." },
   { src: "/finrace/collect.jpg", alt: "Green particles burst as a player collects a savings item", caption: "Every pickup bursts in its category colour: green to grow, orange to spend, red for hazards." },
-  { src: "/finrace/flip.jpg", alt: "A car doing a barrel roll over a truck", caption: "Swipe up to jump and barrel-roll over obstacles. Hit one and your run ends." },
-  { src: "/finrace/crash.jpg", alt: "A car crashed into a barrier with a Crashed banner", caption: "A crash ends that player's session; the other keeps racing to the finish." },
+  { src: "/finrace/flip.jpg", alt: "A car doing a barrel roll over a truck", caption: "Early builds raced cars that barrel-rolled over obstacles; the final game uses running characters." },
+  { src: "/finrace/crash.jpg", alt: "A car crashed into a barrier with a Crashed banner", caption: "Early builds ended a run on a crash. Testing showed a repair bill teaches more and keeps everyone racing." },
   { src: "/finrace/results.jpg", alt: "Results screen with health scores and benchmark bars for both players", caption: "Results: health score, where the money went against 50/30/20, title and takeaway." },
+];
+
+const worlds = [
+  {
+    name: "The procedural city",
+    tag: "Built first, kept as an option",
+    points: [
+      "Road, sidewalks, lamps, trees, hydrants and city blocks are generated tile by tile as the runner moves, so the road never ends and memory stays flat on a tablet.",
+      "Everything comes from the race seed, so the tablet and the LED build the same street without sending it. Only the buildings, chosen on the tablet, travel over the network.",
+      "Fog streams new tiles in at the horizon. No level design is needed to change the race length or speed.",
+    ],
+  },
+  {
+    name: "The Abu Dhabi street",
+    tag: "What the event ran",
+    points: [
+      "A real city model built from map data (roads, buildings, land use and water, about 20 × 19 km), imported at full scale.",
+      "The race follows a spline snapped to a real 2.5 km stretch of coastal road; the 60-second race is stretched onto it, so the start and finish land on real corners.",
+      "Built at runtime along the route: the race road, sidewalks, a trimmed hedge, branded feather banners waving in a custom wind shader, billboards, a daytime HDRI sky and real-size building facades.",
+      "At the finish the camera swings out to frame the runner against a glass tower. On the LED, the second player races in their own copy of the city 25 km away, so the two never shade each other.",
+    ],
+  },
+];
+
+const versions = [
+  {
+    name: "Backup: race on the tablets",
+    dark: true,
+    points: [
+      "Each player registers and races on their own tablet with swipes. The LED mirrors both races live over OSC and runs the lobby, results and leaderboard.",
+      "Needs only hardware I controlled: two tablets, a Windows PC and a router.",
+      "Finished, tested end to end and approved first, then frozen. It went to the event ready to install.",
+    ],
+  },
+  {
+    name: "Final: race on the LED",
+    dark: false,
+    points: [
+      "Tablets only register players. The race runs on the LED, played on an embedded button box with left, right and jump for each player, sending OSC messages.",
+      "Players press JUMP to say they are ready. One ready player races solo after a short wait; two race together. Anyone who registers mid-race sees “race in progress” and is next up.",
+      "The box was built by another team, so I published the exact messages and port it must send, accepted several forms, ignored repeats, and added an on-screen monitor that lights each press so staff can check the box in seconds. Keyboard keys do the same job.",
+    ],
+  },
 ];
 
 const eventReady = [
@@ -71,8 +116,12 @@ const eventReady = [
     text: "Each tablet asks for the screen's IP once per launch. Hotkeys on the PC start a race, reset the floor or run a local test with a keyboard.",
   },
   {
-    name: "Smooth on tablets",
-    text: "The car model was cut from 500k to 70k triangles with the wheels split out to spin and steer. Heavy effects such as motion blur switch off automatically on mobile.",
+    name: "Light enough for a tablet",
+    text: "Parts of the city beyond the fog are switched off, each feather banner is one mesh and one draw call, and heavy effects such as motion blur switch off automatically on mobile.",
+  },
+  {
+    name: "Two zips, one click",
+    text: "One editor menu builds all four apps (two tablet APKs, two LED apps) and packs two zips, each with a setup script that opens the firewall ports, the apps and a one-page guide.",
   },
 ];
 
@@ -82,7 +131,7 @@ const customise = [
   "Stage names, speed and difficulty",
   "Registration fields: name, phone, email, company, opt-ins or anything else",
   "Score titles and takeaway messages",
-  "Car colours, roadside city and the look of the race (sky, fog, lighting, post-processing)",
+  "Runner characters, the procedural or real-world street, and the look of the race (sky, fog, lighting, post-processing)",
 ];
 
 export default function FinRaceCaseStudy() {
@@ -92,7 +141,7 @@ export default function FinRaceCaseStudy() {
         title="FinRace case study"
         path="/CaseStudies/FinRace"
         image="/posters/FinRace.jpg"
-        description="FinRace: a two-player financial-literacy racing game for brand activations. Tablets plus a big screen, lead capture with no lost records, and fully configurable content."
+        description="FinRace: a one- or two-player financial-literacy runner for brand activations, run in Abu Dhabi. A procedural city and a real Abu Dhabi street, a tablet backup and an LED final with a button box, and lead capture with no lost records."
       />
 
       <section className="bg-ink text-paper">
@@ -105,9 +154,9 @@ export default function FinRaceCaseStudy() {
               FinRace
             </h1>
             <p className="mt-4 text-xl sm:text-2xl leading-snug">
-              A two-player money race that turns saving, spending and investing into a three-minute, head-to-head race.
+              A money race that turns saving, spending and investing into a 60-second run, solo or head to head.
             </p>
-            <p className="mt-3 text-paper/70">Financial-literacy brand activation, UAE, 2026</p>
+            <p className="mt-3 text-paper/70">Financial-literacy brand activation, Abu Dhabi, 2026</p>
             <div className="mt-6 flex flex-wrap gap-2">
               <a href={ENQUIRY} className="sign sign-direction">
                 <Arrow dir="ne" />
@@ -119,7 +168,7 @@ export default function FinRaceCaseStudy() {
             <div className="border-2 border-sign bg-scope p-2">
               <Video src="/videos/FinRace.mp4" poster="/posters/FinRace.jpg" label="FinRace gameplay: two players racing side by side" />
             </div>
-            <figcaption className="pt-2 text-xs text-paper/60">Big-screen view: each half is one player&apos;s tablet, mirrored live.</figcaption>
+            <figcaption className="pt-2 text-xs text-paper/60">Early build on the LED: each half is one player&apos;s tablet, mirrored live.</figcaption>
           </figure>
         </div>
       </section>
@@ -184,6 +233,94 @@ export default function FinRaceCaseStudy() {
         </div>
       </section>
 
+      <section aria-labelledby="worlds-h" className="mx-auto max-w-page px-4 sm:px-6 py-12">
+        <h2 id="worlds-h" className="font-display font-extrabold text-5xl leading-none">
+          Two worlds, one race
+        </h2>
+        <p className="mt-4 text-lg max-w-2xl text-muted">
+          The race logic doesn&apos;t care what it runs through. One switch per scene chooses the world, so the same game
+          ran first through a generated city, then down a real Abu Dhabi road.
+        </p>
+        <div className="mt-8 grid gap-6 md:grid-cols-2">
+          {worlds.map((w) => (
+            <article key={w.name} className="border-2 border-ink p-5 bg-paper">
+              <p className="text-sm text-muted">{w.tag}</p>
+              <h3 className="mt-1 font-display font-bold text-3xl leading-tight">{w.name}</h3>
+              <ul className="mt-4 space-y-3">
+                {w.points.map((p) => (
+                  <li key={p} className="pl-6 relative leading-relaxed">
+                    <span aria-hidden="true" className="absolute left-0 top-[0.5em] h-2.5 w-2.5 bg-sign border border-ink" />
+                    {p}
+                  </li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section aria-labelledby="versions-h" className="border-t-2 border-ink">
+        <div className="mx-auto max-w-page px-4 sm:px-6 py-12">
+          <h2 id="versions-h" className="font-display font-extrabold text-5xl leading-none">
+            A backup and a final
+          </h2>
+          <p className="mt-4 text-lg max-w-2xl leading-relaxed">
+            Late in the project the client wanted the race on the LED wall, played on a button box another team was
+            building. Rather than change the approved game, I kept it as the backup and built the final next to it, from
+            the same code. Each version has its own scenes with a few switches ticked; with the switches off the code
+            takes the original path, so a fix to the core reached both.
+          </p>
+          <div className="mt-8 grid gap-6 md:grid-cols-2">
+            {versions.map((v) => (
+              <article
+                key={v.name}
+                className={v.dark ? "border-2 border-ink p-5 bg-scope text-paper" : "border-2 border-ink p-5 bg-sign text-ink"}
+              >
+                <h3 className="font-display font-bold text-3xl leading-tight">{v.name}</h3>
+                <ul className="mt-4 space-y-3">
+                  {v.points.map((p) => (
+                    <li key={p} className="leading-relaxed">
+                      {p}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
+          <div className="mt-8 grid gap-8 lg:grid-cols-12">
+            <div className="lg:col-span-5 space-y-4 text-lg leading-relaxed max-w-prose">
+              <h3 className="font-display font-bold text-3xl leading-tight">How the final ran</h3>
+              <p>
+                Tablets stood at the registration desk. A player picked a runner and typed a name, then walked to the LED,
+                where their name was waiting on a seat. JUMP marked them ready, and the race, results and leaderboard all
+                played on the wall. Every finished run was saved on the PC the moment it ended.
+              </p>
+              <p>
+                The backup went in the same bag: installing the other app on the tablets and starting the other LED app
+                switches over in minutes, with the same PC, network and saved data. Both versions also carry an end date,
+                after which they stop, for a licence that runs out after the event.
+              </p>
+            </div>
+            <figure className="lg:col-span-7">
+              <a href="/finrace/backup-final-flow.svg" className="block border-2 border-ink bg-paper" aria-label="Open the backup and final flowchart full size">
+                <Image
+                  src="/finrace/backup-final-flow.svg"
+                  alt="Flowchart: lock the brief, build one shared core, make each difference a scene switch, then a backup on hardware you control and a final on the venue's hardware; test both, package both, and on show day run the final or switch to the backup."
+                  width={1200}
+                  height={1560}
+                  className="w-full h-auto"
+                  unoptimized
+                />
+              </a>
+              <figcaption className="pt-2 text-sm text-muted">
+                The recipe I&apos;d reuse for any event game that depends on someone else&apos;s hardware. Click to open full
+                size.
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
       <section aria-labelledby="ready-h" className="mx-auto max-w-page px-4 sm:px-6 py-12">
         <h2 id="ready-h" className="font-display font-extrabold text-5xl leading-none">
           Built for a live event floor
@@ -230,14 +367,19 @@ export default function FinRaceCaseStudy() {
           </h2>
           <div className="lg:col-span-7 space-y-4 text-lg leading-relaxed max-w-prose">
             <p>
-              I designed and built FinRace on my own: the money model and scoring, the two-device networking, the data
-              capture, the event flow and the visuals.
+              I designed and built FinRace on my own: the money model and scoring, the networking between tablets, the
+              LED and the button box, the data capture, the event flow, both worlds and both versions.
             </p>
             <p>
               The race is deterministic from a shared seed and clock, so the big screen can replay each tablet&apos;s race
               exactly from a light stream of lane changes, pickups, jumps and crashes. Anything that must not be lost
               (registrations, results, each player&apos;s obstacle layout, the roadside city) travels on a separate reliable
               channel that is acknowledged only once it is saved.
+            </p>
+            <p>
+              For the Abu Dhabi street I snapped the race route to the real road offline from the city model, wrote the
+              wind and facade shaders for the tablet&apos;s GPU, and placed the billboards and finish landmark where the
+              camera would see them.
             </p>
             <p className="text-muted">Unity 6, C#, Universal Render Pipeline, Input System, OSC (extOSC), Android, Windows.</p>
           </div>
