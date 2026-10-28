@@ -186,6 +186,32 @@ export default function FinRaceCaseStudy() {
         </div>
       </section>
 
+      <section aria-labelledby="onsite-h" className="bg-scope text-paper border-t-2 border-sign">
+        <div className="mx-auto max-w-page px-4 sm:px-6 py-12 grid gap-8 lg:grid-cols-12 lg:items-center">
+          <div className="lg:col-span-7">
+            <p className="text-sm text-paper/60">On site</p>
+            <h2 id="onsite-h" className="mt-1 font-display font-extrabold text-5xl leading-none text-sign">
+              Live in Abu Dhabi
+            </h2>
+            <p className="mt-4 text-lg leading-relaxed text-paper/85 max-w-prose">
+              The final version running at the event: two players at the LED wall, racing side by side on the button box
+              after registering on the tablets, with the stand built around the screen.
+            </p>
+          </div>
+          <figure className="lg:col-span-5 w-full max-w-sm mx-auto lg:mx-0 lg:justify-self-end">
+            <div className="border-2 border-sign bg-ink">
+              <Video
+                src="/videos/FinRace_Onsite.mp4"
+                poster="/posters/FinRace_Onsite.jpg"
+                label="FinRace on site in Abu Dhabi: two players racing at the LED wall"
+                aspect="aspect-[464/832]"
+              />
+            </div>
+            <figcaption className="pt-2 text-xs text-paper/60">Filmed on site at the event, Abu Dhabi.</figcaption>
+          </figure>
+        </div>
+      </section>
+
       <section aria-labelledby="glance-h" className="mx-auto max-w-page px-4 sm:px-6 py-12 grid gap-8 lg:grid-cols-12">
         <div className="lg:col-span-5">
           <h2 id="glance-h" className="font-display font-extrabold text-5xl leading-none">
