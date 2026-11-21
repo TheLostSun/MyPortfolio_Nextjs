@@ -11,7 +11,7 @@ export default function CaseStudies() {
       <Seo
         title="Case studies"
         path="/CaseStudies"
-        image="/posters/FinRace.jpg"
+        image="/posters/FruitSlice.jpg"
         description="Case studies by Prabhu Awasthi: how event games, simulators and installations were designed, built and run in front of the public."
       />
       <PageIntro title="Case studies">
