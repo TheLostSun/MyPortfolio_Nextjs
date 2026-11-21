@@ -51,6 +51,42 @@ const finRace: Project = {
   links: [{ label: "Read the case study", href: "/CaseStudies/FinRace" }],
 };
 
+const fruitSlice: Project = {
+  id: "fruitslice",
+  title: "Fruit Slice",
+  client: "Children's health campaign, Early Childhood Week, Abu Dhabi",
+  year: "2026",
+  summary:
+    "A bilingual LED-floor game for young children: stamp on healthy food, skip the junk and dodge the bombs. A LiDAR reads every step, a parent sends the child's name from their phone by QR, and each round ends with a report card the family can download.",
+  role: [
+    "Designed and built the game, its flow and scoring, and the English / Arabic floor UI in the campaign's brand",
+    "LiDAR input for any scanner (TUIO, X,Y over UDP, Windows touch) with foot merging, step detection and on-site mapping tools",
+    "Name registration by phone with no app, report cards with QR codes and their website",
+    "Synthesised music and sound effects, staff settings and setup guide, 56 automated tests",
+  ],
+  stack: "Unity 6, C#, URP, TUIO / OSC, Windows",
+  image: "/posters/FruitSlice.jpg",
+  links: [{ label: "Read the case study", href: "/CaseStudies/FruitSlice" }],
+};
+
+const everyMoveMatters: Project = {
+  id: "everymovematters",
+  title: "Every Move Matters",
+  client: "Children's health campaign, Early Childhood Week, Abu Dhabi",
+  year: "2026",
+  summary:
+    "A bilingual yoga game for children on an LED wall. A Kinect depth camera reads the whole body: raise your hands to start, choose Arabic or English and a yoga buddy by gesture, then copy ten poses, each held for five seconds and judged on the child's own skeleton. Every child takes home a badge with their name.",
+  role: [
+    "Designed and built the game, its gesture-driven flow and the bilingual wall UI in the campaign's brand",
+    "Pose matching on the skeleton: rule checks plus 3D templates, sized to each child's height and tuned for children",
+    "Player selection in a crowd, Kinect v2 and Azure Kinect support, staff menu with a live top-down map",
+    "Name registration by phone, badges with QR codes, synthesised music and sound",
+  ],
+  stack: "Unity 6, C#, URP, Kinect body tracking, Windows",
+  image: "/posters/EveryMoveMatters.jpg",
+  links: [{ label: "Read the case study", href: "/CaseStudies/EveryMoveMatters" }],
+};
+
 const vectra: Project = {
   id: "vectra",
   title: "Vectra",
@@ -231,7 +267,7 @@ export const groups: Group[] = [
     id: "installations",
     name: "Installations and XR",
     intro: "Experiences for exhibitions, museums and live events, built to run all day in front of the public.",
-    projects: [finRace, samudra],
+    projects: [fruitSlice, everyMoveMatters, finRace, samudra],
   },
   {
     id: "games",
@@ -242,9 +278,9 @@ export const groups: Group[] = [
 ];
 
 /** Order used across the site and the hero reel. */
-export const allWork: Project[] = [finRace, gati, tata, samudra, vectra, mimic, fartFrog, slasher, hyper, ether];
+export const allWork: Project[] = [fruitSlice, everyMoveMatters, finRace, gati, tata, samudra, vectra, mimic, fartFrog, slasher, hyper, ether];
 
-export const featured: Project[] = [finRace, gati, tata, samudra, vectra, mimic];
+export const featured: Project[] = [fruitSlice, everyMoveMatters, finRace, gati, tata, samudra, vectra, mimic];
 
 export const web: Project[] = [
   {
