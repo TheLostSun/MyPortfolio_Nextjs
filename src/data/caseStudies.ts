@@ -13,6 +13,18 @@ export type CaseStudy = {
 /** Long-form write-ups for projects I pitch to new clients. Newest first. */
 export const caseStudies: CaseStudy[] = [
   {
+    slug: "desertrace",
+    href: "/CaseStudies/DesertRace",
+    title: "The Great Desert Race",
+    tagline: "A camel race through 200 years of the UAE, for one player or two",
+    client: "Culture and tourism event, UAE",
+    year: "2026",
+    poster: "/posters/DesertRace.jpg",
+    tags: ["Arcade cabinet", "Joystick box (serial)", "English + Arabic", "Name by phone QR", "Leaderboard + badges"],
+    blurb:
+      "How a two-player arcade race told the story of the UAE from 1926 to 2126: names sent from the players' phones, a solo race when only one scans, English and Arabic, a joystick box that staff can remap on site, and a badge and leaderboard rank for every player.",
+  },
+  {
     slug: "fruitslice",
     href: "/CaseStudies/FruitSlice",
     title: "Fruit Slice",

@@ -51,6 +51,24 @@ const finRace: Project = {
   links: [{ label: "Read the case study", href: "/CaseStudies/FinRace" }],
 };
 
+const desertRace: Project = {
+  id: "desertrace",
+  title: "The Great Desert Race",
+  client: "Culture and tourism event, UAE",
+  year: "2026",
+  summary:
+    "A two-player camel race on an arcade cabinet, from 1926 to 2126. Players register by scanning a QR on their phone, choose English or Arabic, race through eight eras of the UAE, and take home a badge with their leaderboard rank. A solo player is a full session too.",
+  role: [
+    "Designed and built the game, its feel, the eight eras and the bilingual UI in the client's brand",
+    "Joystick box on a USB serial port with an on-site settings menu, plus gamepad and keyboard backups",
+    "Name registration by phone QR with solo and two-player handling, no app and no account",
+    "Offline leaderboard in JSON and Excel, and badge pages on GitHub Pages for 1st, 2nd and solo rank",
+  ],
+  stack: "Unity 6, C#, URP, Windows serial, GitHub Pages",
+  image: "/posters/DesertRace.jpg",
+  links: [{ label: "Read the case study", href: "/CaseStudies/DesertRace" }],
+};
+
 const fruitSlice: Project = {
   id: "fruitslice",
   title: "Fruit Slice",
@@ -267,7 +285,7 @@ export const groups: Group[] = [
     id: "installations",
     name: "Installations and XR",
     intro: "Experiences for exhibitions, museums and live events, built to run all day in front of the public.",
-    projects: [fruitSlice, everyMoveMatters, finRace, samudra],
+    projects: [desertRace, fruitSlice, everyMoveMatters, finRace, samudra],
   },
   {
     id: "games",
@@ -278,9 +296,9 @@ export const groups: Group[] = [
 ];
 
 /** Order used across the site and the hero reel. */
-export const allWork: Project[] = [fruitSlice, everyMoveMatters, finRace, gati, tata, samudra, vectra, mimic, fartFrog, slasher, hyper, ether];
+export const allWork: Project[] = [desertRace, fruitSlice, everyMoveMatters, finRace, gati, tata, samudra, vectra, mimic, fartFrog, slasher, hyper, ether];
 
-export const featured: Project[] = [fruitSlice, everyMoveMatters, finRace, gati, tata, samudra, vectra, mimic];
+export const featured: Project[] = [desertRace, fruitSlice, everyMoveMatters, finRace, gati, tata, samudra, vectra, mimic];
 
 export const web: Project[] = [
   {
